@@ -30,16 +30,17 @@ let skusForCountry = (countrySkuCode) => {
 
 let favouritesForCountry = (countrySkuCode) => {
   return [
-    `MMQX3${countrySkuCode}/A`,
-    `MKH53${countrySkuCode}/A`,
-    `MK1A3${countrySkuCode}/A`,
+    `MK1F3${countrySkuCode}/A`,
+    `MK193${countrySkuCode}/A`,
     `MK1H3${countrySkuCode}/A`,
+    `MK1A3${countrySkuCode}/A`,
+
   ]
 }
 
 const control = "MYD92LL/A";
-let storeNumber = "R172";
-let state = "CO";
+let storeNumber = "R102";
+let state = "DE";
 let country = "US"
 
 if (args.length > 0) {
@@ -121,13 +122,13 @@ request(options, function (error, response) {
   console.log('----------------');
   console.log(inventory.replaceAll(" | ", "\n"));
   let hasUltimate = Object.keys(skuCounter).some(
-    (r) => favorites.indexOf(r) >= 0
+    (r) => favorites.indexOf(r) >= 1
   );
   let notificationMessage;
 
   if (inventory) {
-    notificationMessage = `${hasUltimate ? "FOUND ULTIMATE! " : ""
-      }Some models found: ${inventory}`;
+    notificationMessage = `${hasUltimate ? "Fav. Model Found: " : ""
+      } ${inventory}`;
   } else {
     notificationMessage = "No models found.";
     console.log(statusArray);
